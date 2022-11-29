@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require("../models/user");
-const { registerValidation } = require(`../configs/validation`)
+const { registerValidation } = require(`../config/validation`)
 
 module.exports = {
     addUser: async (req, res) => {

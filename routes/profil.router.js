@@ -5,7 +5,7 @@ const {
     updateUserById
 } = require("../controllers/profil.controller");
 
-router.get('/', getUserById)
+router.get('/:id', getUserById)
 router.put('/:id', updateUserById)
 
 module.exports = router

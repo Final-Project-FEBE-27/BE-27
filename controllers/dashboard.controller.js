@@ -5,6 +5,9 @@ module.exports = {
     getAllForum: async (req, res) => {
         try {
             const Forum = await forum.find()
+            res.json({
+                data: Forum
+            })
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
@@ -31,7 +34,8 @@ module.exports = {
     getForumByKategori: async (req, res) => {
         try {
             const kategori = req.params.kategori
-            const artikels = await forum.findOne(kategori)
+            console.log(req.params);
+            const artikels = await forum.findOne({"kategori": kategori})
             if(artikels){
                 res.json({
                     data: artikels
@@ -49,19 +53,9 @@ module.exports = {
     addForum: (req, res) => {
         try {
             const data = req.body
-            const img = fs.readFileSync(req.file.path)
-            const encode_image = img.toString('base64')
-
-            const finalImg = {
-                nama: req.file.originalname,
-                contentType: req.file.mimetype,
-                image: new Buffer.from(encode_image, 'base64')
-            }
-
-            const Forum = new forum(data, finalImg)
+            const Forum = new forum(data)
             Forum.save()
 
-            unlinkAsync(req.file.path)
             res.redirect("/dashboard")
         } catch (error) {
             return res.status(400).send("Aduh eror")
