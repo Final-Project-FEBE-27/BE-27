@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { getForumById } = require("../controllers/dashboard.controller");
+const { getForumByKategori } = require("../controllers/dashboard.controller");
 
-router.get('/', getForumById)
+router.get('/:kategori', getForumByKategori)
 
 module.exports = router

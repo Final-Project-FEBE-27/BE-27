@@ -4,7 +4,7 @@ const verifyToken = (req, res, next) => {
     const token = req.header('auth_token')
     if(!token) return res.status(400).json({
         status: res.statusCode,
-        message: 'Access denied'
+        message: 'Access denied, silahkan login terlebih dahulu'
     });
     
     try {

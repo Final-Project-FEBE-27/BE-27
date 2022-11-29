@@ -7,7 +7,7 @@ const {
  } = require("../controllers/admin.controller");
 
 router.get('/', getAllForum)
-router.get('/', deleteForumById)
-router.get('/', getAllUser)
+router.delete('/', deleteForumById)
+router.get('/user', getAllUser)
 
 module.exports = router

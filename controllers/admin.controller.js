@@ -6,6 +6,9 @@ module.exports = {
     getAllForum: async (req, res) => {
         try {
             const Forum = await forum.find()
+            res.json({
+                data: Forum
+            })
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
@@ -24,10 +27,12 @@ module.exports = {
 
     getAllUser: async (req, res) => {
         try {
-            const Forum = await user.find()
+            const usr = await user.find()
+            res.json({
+                data: usr
+            })
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
-    }
-    
+    },  
 }

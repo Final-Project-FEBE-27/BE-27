@@ -3,6 +3,7 @@ const router = express.Router()
 
 const registerRouter = require('./register.router')
 const loginRouter = require('./login.router')
+const loginadminRouter = require('./loginadmin.router')
 
 // user
 const dashboardRouter = require('./dashboard.router')
@@ -18,6 +19,7 @@ const token = require('../middleware/verifyToken')
 
 router.use('/register', registerRouter);
 router.use('/login', loginRouter);
+router.use('/loginadmin', loginadminRouter)
 router.use('/dashboard', token, dashboardRouter)
 router.use('/yourforum', token, yourforumRouter)
 router.use('/kategori', token, kategoriRouter)
