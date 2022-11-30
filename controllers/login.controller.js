@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     login: async (req, res) => {
         const data = req.body;
+        const id = req.params.id
         const user = await Login.findOne({ email: data.email });
         if(!user) return res.status(400).json({
             status: res.statusCode,
@@ -22,6 +23,7 @@ module.exports = {
                 
             res.header('auth_token', token).json({
                 token: token,
+                data: user.username
             })
     } 
 };
