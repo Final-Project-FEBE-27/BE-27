@@ -54,6 +54,7 @@ Request :
 ```json
 {
     "token": "String"
+    "username": "String"
 }
 ```
 
@@ -83,6 +84,7 @@ Request :
 ```json
 {
     "token": "String"
+    "username": "String"
 }
 ```
 
