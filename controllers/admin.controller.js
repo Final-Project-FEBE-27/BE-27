@@ -34,5 +34,21 @@ module.exports = {
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
-    },  
+    },
+
+    updateUserById: async (req, res) => {
+        try {
+            const id = req.params.id
+            const data = req.body
+
+            const perbarui =  await profil.findByIdAndUpdate(id, data, { new: true})
+            if(!perbarui) return res.status(404).json({message: "Data tidak ada"})
+            return res.json({
+                message: "Data berhasil di update",
+                data: perbarui
+            })
+        } catch (error) {
+            return res.status(400).send("Aduh eror")
+        } 
+    }
 }
