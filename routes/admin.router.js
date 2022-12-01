@@ -10,6 +10,6 @@ const {
 router.get('/', getAllForum)
 router.delete('/', deleteForumById)
 router.get('/user', getAllUser)
-router.post('/user/:id', updateUserById)
+router.post('/editUser/:id', updateUserById)
 
 module.exports = router
