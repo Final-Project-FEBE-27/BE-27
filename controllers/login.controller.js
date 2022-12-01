@@ -23,7 +23,8 @@ module.exports = {
                 
             res.header('auth_token', token).json({
                 token: token,
-                data: user.username
+                data: user.username,
+                id: user._id
             })
     } 
 };

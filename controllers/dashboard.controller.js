@@ -4,7 +4,7 @@ const db = require("../config/koneksi")
 module.exports = {
     getAllForum: async (req, res) => {
         try {
-            const Forum = await forum.find()
+            const Forum = await forum.find().populate("user", "username")
             res.json({
                 data: Forum
             })
@@ -16,7 +16,7 @@ module.exports = {
     getForumById: async (req, res) => {
         try {
             const id = req.params.id
-            const artikels = await forum.findById(id)
+            const artikels = await forum.findById(id).populate("user", "username")
             if(artikels){
                 res.json({
                     data: artikels
@@ -56,7 +56,9 @@ module.exports = {
             const Forum = new forum(data)
             Forum.save()
 
-            res.redirect("/dashboard")
+            res.json({
+                data:data
+            })
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
