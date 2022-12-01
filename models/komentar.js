@@ -12,11 +12,7 @@ const komenSchema = new Schema({
         required: true
     },
     
-    balasan: {
-        type: mongoose.ObjectId,
-        ref: "User",
-        balasan: String
-    }
+    balasan: [this]
 })
 
 const Komentar = mongoose.model("Komentar", komenSchema)
