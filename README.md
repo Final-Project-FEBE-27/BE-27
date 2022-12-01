@@ -98,6 +98,7 @@ Request :
 | judul     | String        |Null       |judul dari forum              |
 | isi       | String        |Null       |isi dari forum                |
 | kategori  | String        |Null       |atribut unik untuk setiap foum|
+| komentar  | ObjectId      |Null       |ambil tabel komentar          |
 
 ### Tambah Forum
 Request :
@@ -211,11 +212,13 @@ Request :
 ## Komentar
 ### Komentar Collection
 
-| Atribut   | Tipe Data     | default   |Deskripsi                     |
-| ----------| --------------|-----------|------------------------------|
-| judul     | String        |Null       |judul dari forum              |
-| isi       | String        |Null       |isi dari forum                |
-| kategori  | String        |Null       |atribut unik untuk setiap foum|
+| Atribut            | Tipe Data     | default   |Deskripsi                              |
+| -------------------| --------------|-----------|---------------------------------------|
+| nama               | ObjectId      |Null       |menampilkan nama user yang komen       |
+| komentar           | String        |Null       |isi komentar                           |
+| balasan            | String        |Null       |atribut untuk menyimpan atribut balasan|
+| nama (balasan)     | ObjectId      |Null       |menampilkan user yang balas            |
+| komentar (balasan) | String        |Null       |isi balasan                            |
 
 ### Tambah Komentar
 Request :
