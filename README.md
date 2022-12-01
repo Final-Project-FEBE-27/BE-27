@@ -139,7 +139,7 @@ Request :
 ### Menampilkan User
 Request :
 * Method : GET
-* Endpoint : /user
+* Endpoint : /admin/user
 * Header :
    * Content-Type : application/json
    * Accept : application/json
@@ -158,7 +158,7 @@ Request :
 ### Update User
 Request :
 * Method : PUT
-* Endpoint : /editUser
+* Endpoint : /admin/editUser/:id
 * Header :
    * Content-Type : application/json
    * Accept : application/json
