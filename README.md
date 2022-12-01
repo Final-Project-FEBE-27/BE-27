@@ -90,6 +90,76 @@ Request :
 }
 ```
 
+### Menampilkan Forum
+Request :
+* Method : GET
+* Endpoint : /admin
+* Header :
+   * Content-Type : application/json
+   * Accept : application/json
+   * auth-token : jwt/token
+* Response :
+```json
+{
+   "_id": "ObjectId (Forum)",
+   "user": {
+      "_id": "ObjectId (User)",
+      "username": "String"
+      },
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String",
+   "komentar": [
+      "_id": "ObjectId (Komentar)"
+   ]
+}
+```
+
+### Hapus Forum
+Request :
+* Method : DELETE
+* Endpoint : /admin
+* Header :
+   * Content-Type : application/json
+   * Accept : application/json
+   * auth-token : jwt/token
+* Body :
+```json
+{
+   "id": "ObjectId (Forum)"
+}
+```
+* Response :
+```json
+{
+   "message": "String"
+}
+```
+
+### Update User
+Request :
+* Method : PUT
+* Endpoint : /editUser
+* Header :
+   * Content-Type : application/json
+   * Accept : application/json
+   * auth-token : jwt/token
+* Body :
+```json
+{
+   "email": "String",
+   "username": "String",
+   "password": "String"
+}
+```
+* Response :
+```json
+{
+   "email": "String",
+   "username": "String",
+   "password": "String"
+}
+```
 ## Forum
 ### Forum Collection
 
