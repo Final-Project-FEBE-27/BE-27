@@ -19,7 +19,9 @@ module.exports = {
         try {
             const hapus = await forum.findByIdAndDelete(id)
             if(!hapus) return res.status(404).json({message: "Data tidak ada"})
-            return res.json({message: "Data berhasil dihapus"})
+            return res.json({
+                data: hapus
+            })
         } catch (error) {
             return res.status(400).send("Aduh eror")
         }
@@ -44,7 +46,6 @@ module.exports = {
             const perbarui =  await profil.findByIdAndUpdate(id, data, { new: true})
             if(!perbarui) return res.status(404).json({message: "Data tidak ada"})
             return res.json({
-                message: "Data berhasil di update",
                 data: perbarui
             })
         } catch (error) {
