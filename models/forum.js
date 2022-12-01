@@ -18,10 +18,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  komentar: {
+  komentar: [{
       type: mongoose.ObjectId,
       ref: "Komentar"
-    },
+    }]
 })
 
 const Forum = mongoose.model("Forum", userSchema)

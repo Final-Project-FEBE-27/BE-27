@@ -16,7 +16,9 @@ module.exports = {
     getForumById: async (req, res) => {
         try {
             const id = req.params.id
-            const artikels = await forum.findById(id).populate("user", "username")
+            const artikels = await forum.findById(id).populate("user", "username").populate({
+                path: "komentar",
+              })
             if(artikels){
                 res.json({
                     data: artikels
