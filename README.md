@@ -136,6 +136,25 @@ Request :
 }
 ```
 
+### Menampilkan User
+Request :
+* Method : GET
+* Endpoint : /user
+* Header :
+   * Content-Type : application/json
+   * Accept : application/json
+   * auth-token : jwt/token
+* Response :
+```json
+{
+   "id": "ObjectId (User)"
+   "username": "String",
+   "email": "String",
+   "password": "String",
+   "dateRegister": "Date"
+}
+```
+
 ### Update User
 Request :
 * Method : PUT
