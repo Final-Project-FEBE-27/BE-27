@@ -24,16 +24,16 @@ Request :
 * Body :
 ```json
 {
-    "email": "String",
-    "username": "String",
-    "password": "String",
-    "dataRegister": "Date"
+   "email": "String",
+   "username": "String",
+   "password": "String",
+   "dataRegister": "Date"
 }
 ```
 * Response :
 ```json
 {
-    "message": "String"
+   "message": "String"
 }
 ```
 ### Login
@@ -46,15 +46,16 @@ Request :
 * Body :
 ```json
 {
-    "username": "String",
-    "password": "String"
+   "username": "String",
+   "password": "String"
 }
 ```
 * Respone :
 ```json
 {
-    "token": "String"
-    "username": "String"
+   "token": "String",
+   "username": "String",
+   "id": "ObjectId (User)"
 }
 ```
 
@@ -76,15 +77,16 @@ Request :
 * Body :
 ```json
 {
-    "username": "String",
-    "password": "String",
+   "username": "String",
+   "password": "String"
 }
 ```
 * Response :
 ```json
 {
-    "token": "String"
-    "username": "String"
+   "token": "String",
+   "username": "String",
+   "id": "ObjectId (Admin)"
 }
 ```
 
@@ -108,15 +110,19 @@ Request :
 * Body :
 ```json
 {
-    "judul": "String",
-    "isi": "String",
-    "kategori": "String"
+   "user": "ObjectId (User)",
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String"
 }
 ```
 * Response :
-```js
+```json
 {
-  redirect('/dashboard')
+   "user": "ObjectId (User)",
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String"
 }
 ```
 
@@ -131,14 +137,17 @@ Request :
 - Response :
 ```json
 {
-    "_id": "String",
-    "judul": "String",
-    "isi": "String",
-    "kategori": "String",
-    "komentar": {
-        "type": "ObjectId",
-        "ref": "Komentar"
-    }   
+   "_id": "ObjectId (Forum)",
+   "user": {
+      "_id": "ObjectId (User)",
+      "username": "String"
+      },
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String",
+   "komentar": [
+      "_id": "ObjectId (Komentar)"
+   ]
 }
 ```
 
@@ -153,14 +162,24 @@ Request :
 - Response :
 ```json
 {
-    "_id": "String",
+    "_id": "ObejctId (Forum)",
     "judul": "String",
     "isi": "String",
     "kategori": "String",
-    "komentar": {
-        "type": "ObjectId",
-        "ref": "Komentar"
-    }   
+    "komentar": [
+     {
+      "_id": "ObjectId (Komentar)",
+      "nama": "ObjectId (User komentar)",
+      "komentar": "String",
+      "balasan": [
+         {
+            "nama": "ObjectId (User balasan)",
+            "komentar": "String",
+            "_id": "ObjectId (Komentar)"
+         }
+         ]
+      }
+   ]
 }
 ```
 
@@ -175,14 +194,17 @@ Request :
 - Response :
 ```json
 {
-    "_id": "String",
-    "judul": "String",
-    "isi": "String",
-    "kategori": "String",
-    "komentar": {
-        "type": "ObjectId",
-        "ref": "Komentar"
-    }   
+   "_id": "ObjectId (Forum)",
+   "user": {
+      "_id": "ObjectId (User)",
+      "username": "String"
+      },
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String",
+   "komentar": [
+      "_id": "ObjectId (Komentar)"
+   ]
 }
 ```
 
@@ -203,21 +225,35 @@ Request :
     * Content-Type : application/json
     * Accept : application/json
     * auth-token : jwt/token
+#### Komentar
 * Body :
 ```json
 {
-    "nama": "ObjectId",
-    "komentar": "String",
-    "balasan": {
-      "type": "ObjectId",
-      "ref": "User",
-      "balasan": "String"
-    }   
+    "nama": "ObjectId (User Komentar)",
+    "komentar": "String"
 }
 ```
 * Response :
-```js
+```json
 {
-  redirect('/yourforum/:id')
+   "nama": "ObjectId (User Komentar)",
+   "komentar": "String"
+}
+```
+#### Balasan
+* Body :
+```json
+{
+    "nama": "ObjectId (User Balasan)",
+    "komentar": "String",
+    "id_komentar": "ObjectId (komentar)"
+}
+```
+* Response :
+```json
+{
+    "nama": "ObjectId (User Balasan)",
+    "komentar": "String",
+    "id_komentar": "ObjectId (komentar)"
 }
 ```
