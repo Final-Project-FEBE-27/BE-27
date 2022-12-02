@@ -7,6 +7,11 @@ const komenSchema = new Schema({
         ref: "User"
     },
 
+    username: {
+        type: String,
+        required: true
+    },
+
     komentar: {
         type: String,
         required: true
