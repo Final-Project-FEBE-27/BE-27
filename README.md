@@ -8,7 +8,7 @@ URL API : https://blue-cloudy-rattlesnake.cyclic.app/
 
 # ERD
 
-![ERD](https://user-images.githubusercontent.com/114371403/204695277-726536de-37ea-4a9d-b2eb-50379dbb1a03.png)
+![ERD](https://user-images.githubusercontent.com/114371403/205211279-b6e7d917-423b-40cd-9f9c-7e9981fb691c.png)
 
 # DOKUMENTASI API
 
