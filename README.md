@@ -1,3 +1,11 @@
+# DEPLOY
+
+Code ini di deploy pakai repo pribadi : https://github.com/RezieqFadillah/BE-27-final-ni
+
+Link Deploy Repo (cyclic) : https://app.cyclic.sh/#/app/rezieqfadillah-be-27-final-ni/builds/2022-12-02T03:36:57.944Z
+
+URL API : https://blue-cloudy-rattlesnake.cyclic.app/
+
 # ERD
 
 ![ERD](https://user-images.githubusercontent.com/114371403/204695277-726536de-37ea-4a9d-b2eb-50379dbb1a03.png)
@@ -132,7 +140,17 @@ Request :
 * Response :
 ```json
 {
-   "message": "String"
+   "_id": "ObjectId (Forum)",
+   "user": {
+      "_id": "ObjectId (User)",
+      "username": "String"
+      },
+   "judul": "String",
+   "isi": "String",
+   "kategori": "String",
+   "komentar": [
+      "_id": "ObjectId (Komentar)"
+   ]
 }
 ```
 
@@ -150,6 +168,30 @@ Request :
    "id": "ObjectId (User)"
    "username": "String",
    "email": "String",
+   "password": "String",
+   "dateRegister": "Date"
+}
+```
+
+### Hapus User
+Request :
+* Method : DELETE
+* Endpoint : /admin/user
+* Header :
+   * Content-Type : application/json
+   * Accept : application/json
+   * auth-token : jwt/token
+* Body :
+```json
+{
+   "id": "ObjectId (User)"
+}
+```
+* Response :
+```json
+{
+   "email": "String",
+   "username": "String",
    "password": "String",
    "dateRegister": "Date"
 }
